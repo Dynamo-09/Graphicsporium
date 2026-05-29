@@ -889,7 +889,7 @@ const Preloader = ({ show }) => {
   return (
     <div className={`preloader-overlay ${!show ? 'fade-out' : ''}`}>
       <img src={gLogoImg} alt="Loading..." className="preloader-logo" />
-      <h1 className="preloader-text">LOADING</h1>
+     
     </div>
   );
 };
