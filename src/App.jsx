@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, Fragment } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import {
   Menu, X, ArrowRight, PenTool, Layout, Box,
   Monitor, CheckCircle,
@@ -965,6 +966,7 @@ function App() {
       <ContactForm externalData={estimatorData} />
       <Footer currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} />
       <WhatsAppButton onClick={handleWhatsAppRedirect} />
+      <Analytics />
     </div>
   );
 }
