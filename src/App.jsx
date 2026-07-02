@@ -260,7 +260,7 @@ const Hero = ({ currentLogo }) => {
 
 // --- Services Section ---
 const services = [
-  { icon: <Image size={32} />, title: "Logo Design", desc: "Memorable logos that perfectly capture your brand identity.", price: "₹799*" },
+  { icon: <Image size={32} />, title: "Logo Design", desc: "Memorable logos that perfectly capture your brand identity.", price: "₹1499*" },
   { icon: <Box size={32} />, title: "Branding Design", desc: "Cohesive brand identities that stand out in the crowded market.", price: "₹2,499*" },
   { icon: <CreditCard size={32} />, title: "Business Card Design", desc: "Professional business cards that leave a lasting impression.", price: "₹99*" },
   { icon: <FileText size={32} />, title: "Flyer/Leaflet Design", desc: "Engaging promotional materials for your marketing campaigns.", price: "₹199*" },
