@@ -5,7 +5,7 @@ import {
   Quote,
   Image, Package, Shirt, BookOpen, Flag, CreditCard,
   FileText, MonitorPlay, Share2, Wand2, Video,
-  Film, TrendingUp, Star, Sun, Moon
+  Film, TrendingUp, Star, Sun, Moon, ShoppingCart
 } from 'lucide-react';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import Blog from './Blog';
@@ -13,6 +13,9 @@ import BlogPost from './BlogPost';
 import AboutUsPage from './AboutUsPage';
 import ContactPage from './ContactPage';
 import ServicesPage from './ServicesPage';
+import PortfolioPage from './PortfolioPage';
+import { EbooksPage } from './pages/EbooksPage';
+import { AdminPortal } from './pages/admin/AdminPortal';
 import './index.css';
 
 import logoDarkThemeImg from './assets/Graphicsporium_page_1black_trans.png';
@@ -29,8 +32,6 @@ import priyanshuBw from './assets/PriyanshuChoudhuri_B&W.jpeg';
 import priyanshuColor from './assets/PriyanshuChoudhuri_color.jpeg';
 import sayanBw from './assets/SayanBiswas_B&W.jpeg';
 import sayanColor from './assets/SayanBiswas_color.jpeg';
-import snehaBw from './assets/sneha_B&W.png';
-import snehaColor from './assets/sneha_color.png';
 
 import imgBanner from './assets/our services images/Banner.png';
 import imgBranding from './assets/our services images/Branding Design.png';
@@ -53,10 +54,14 @@ import clientLogo6 from './assets/for web/Group 37030.png';
 import clientLogo7 from './assets/for web/Group 37031.png';
 import clientLogo8 from './assets/for web/Group 37042.png';
 import clientLogo9 from './assets/for web/Group 37044.png';
+import clientLogo10 from './assets/for web/Aavisha.jpeg';
 import gLogoImg from './assets/G_LOGO.png';
-
+import iconFb from './assets/FB.png';
+import iconInsta from './assets/Insta.png';
+import iconLinkedin from './assets/linkedin.png';
+import introVideo from './assets/intro1.mp4';
 // --- Navigation ---
-export const Navbar = ({ isDarkTheme, toggleTheme, currentLogo, onNavClick, onToggleConsultation }) => {
+export const Navbar = ({ isDarkTheme, toggleTheme, currentLogo, onNavClick, onToggleConsultation, cartItemCount = 0, isOverlayOpen = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -92,12 +97,10 @@ export const Navbar = ({ isDarkTheme, toggleTheme, currentLogo, onNavClick, onTo
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${isScrolled || isOverlayOpen ? 'scrolled overlay-active' : ''}`}>
       <div className="container nav-container">
         <a href="#home" className="logo" onClick={(e) => handleNavClick(e, '#home')}>
           <img src={currentLogo} alt="Graphicsporium" className="navbar-logo" style={{
-            height: '65px',
-            width: '240px',
             objectFit: 'contain',
             objectPosition: 'left center'
           }} />
@@ -107,11 +110,23 @@ export const Navbar = ({ isDarkTheme, toggleTheme, currentLogo, onNavClick, onTo
           <li><a href="#home" onClick={(e) => handleNavClick(e, '#home')}>Home</a></li>
           <li><Link to="/about" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>About Us</Link></li>
           <li><Link to="/services" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>Services</Link></li>
-          <li><a href="#portfolio" onClick={(e) => handleNavClick(e, '#portfolio')}>Portfolio</a></li>
+          <li><Link to="/portfolio" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>Portfolio</Link></li>
+          <li><Link to="/ebooks" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>E-Books</Link></li>
           <li><Link to="/blog" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>Blogs</Link></li>
         </ul>
 
         <div className="nav-actions desktop-only">
+          <button 
+            style={{ position: 'relative', background: 'transparent', border: 'none', cursor: 'pointer', padding: '0.5rem', display: 'flex', alignItems: 'center' }} 
+            onClick={(e) => handleNavClick(e, '#contact')}
+          >
+            <ShoppingCart size={24} stroke="var(--color-primary)" />
+            {cartItemCount > 0 && (
+              <span style={{ position: 'absolute', top: '0', right: '0', background: '#ff4d4d', color: 'white', fontSize: '0.75rem', fontWeight: 'bold', width: '18px', height: '18px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {cartItemCount}
+              </span>
+            )}
+          </button>
           <a href="#contact" className="btn btn-primary" onClick={(e) => handleNavClick(e, '#contact')}>Let's Talk</a>
           <div className="theme-toggle-container">
             <Moon size={20} stroke="#FF5A00" />
@@ -123,6 +138,17 @@ export const Navbar = ({ isDarkTheme, toggleTheme, currentLogo, onNavClick, onTo
         </div>
 
         <div className="mobile-toggle-wrapper mobile-only" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <button 
+            style={{ position: 'relative', background: 'transparent', border: 'none', cursor: 'pointer', padding: '0.2rem', display: 'flex', alignItems: 'center' }} 
+            onClick={(e) => handleNavClick(e, '#contact')}
+          >
+            <ShoppingCart size={22} stroke="var(--color-primary)" />
+            {cartItemCount > 0 && (
+              <span style={{ position: 'absolute', top: '-4px', right: '-4px', background: '#ff4d4d', color: 'white', fontSize: '0.7rem', fontWeight: 'bold', width: '16px', height: '16px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {cartItemCount}
+              </span>
+            )}
+          </button>
           <div className="theme-toggle-container">
             <Moon size={18} stroke="#FF5A00" />
             <button className={`theme-toggle-btn ${!isDarkTheme ? 'active-light' : ''}`} onClick={toggleTheme}>
@@ -143,7 +169,8 @@ export const Navbar = ({ isDarkTheme, toggleTheme, currentLogo, onNavClick, onTo
             <li><a href="#home" onClick={(e) => handleNavClick(e, '#home')}>Home</a></li>
             <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')}>About Us</a></li>
             <li><Link to="/services" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>Services</Link></li>
-            <li><a href="#portfolio" onClick={(e) => handleNavClick(e, '#portfolio')}>Portfolio</a></li>
+            <li><Link to="/portfolio" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>Portfolio</Link></li>
+            <li><Link to="/ebooks" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>E-Books</Link></li>
             <li><Link to="/blog" onClick={() => { setMobileMenuOpen(false); if (onNavClick) onNavClick(); }}>Blogs</Link></li>
             <li><a href="#contact" className="btn btn-primary" onClick={(e) => handleNavClick(e, '#contact')}>Let's Talk</a></li>
           </ul>
@@ -283,7 +310,7 @@ const Hero = ({ currentLogo }) => {
         </div>
 
         <div className="gp-cta-row">
-          <a href="#portfolio" className="gp-btn-main">View Our Portfolio</a>
+          <Link to="/portfolio" className="gp-btn-main">View Our Portfolio</Link>
           <a href="#contact" className="gp-btn-out">Start a Project &rarr;</a>
         </div>
       </div>
@@ -349,7 +376,7 @@ const StatusBar = () => {
     { label: "Reviews", value: 5, suffix: "", isStar: true },
   ];
 
-  const companies = [clientLogo1, clientLogo2, clientLogo3, clientLogo4, clientLogo5, clientLogo6, clientLogo7, clientLogo8, clientLogo9];
+  const companies = [clientLogo1, clientLogo2, clientLogo3, clientLogo4, clientLogo5, clientLogo6, clientLogo7, clientLogo8, clientLogo9, clientLogo10];
 
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -397,7 +424,12 @@ const StatusBar = () => {
               <div key={group} className="marquee-group">
                 {companies.map((logo, idx) => (
                   <span key={idx} className="company-logo">
-                    <img src={logo} alt={`Client Logo ${idx + 1}`} className="client-logo-img" />
+                    <img 
+                      src={logo} 
+                      alt={`Client Logo ${idx + 1}`} 
+                      className="client-logo-img" 
+                      style={logo.includes('Aavisha') ? { border: '4px solid #ff5a00', borderRadius: '12px', boxSizing: 'border-box' } : {}}
+                    />
                   </span>
                 ))}
               </div>
@@ -472,10 +504,6 @@ const WebsiteAndBrandingPackages = ({ onAddToCart }) => {
       price: pkg.price !== 'Custom' ? pkg.price : 'Custom Quotation',
       timeline: 'Standard Delivery'
     });
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   const packages = [
@@ -667,18 +695,18 @@ const WhyChooseUs = () => {
 };
 
 // --- Portfolio Section ---
-const portfolioItems = [
+export const portfolioItems = [
   { title: "Graphic Design" },
   { title: "Package Design" },
   { title: "T-Shirt Design" },
-  { title: "Illustration", isComingSoon: true },
+  { title: "Illustration" },
   { title: "Video Editing", isComingSoon: true },
   { title: "2D/3D Animation", isComingSoon: true },
   { title: "3D Modeling", isComingSoon: true },
   { title: "Website/App Development" },
 ];
 
-const Portfolio = ({ openOverlay }) => {
+export const Portfolio = ({ openOverlay }) => {
   const handlePortfolioClick = (e, title) => {
     e.preventDefault();
     openOverlay(title);
@@ -971,8 +999,6 @@ export const Footer = ({ currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
         <div className="new-footer-grid">
           <div className="footer-col">
             <img src={currentLogo} alt="Graphicsporium" className="navbar-logo" style={{ 
-              height: '65px', 
-              width: '240px',
               objectFit: 'contain',
               objectPosition: 'left center',
               marginBottom: '1rem'
@@ -980,6 +1006,17 @@ export const Footer = ({ currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
             <p className="footer-desc-text">
               We create impactful visual identities and marketing creatives that help brands grow, connect, and stand out in competitive markets.
             </p>
+            <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+              <a href="https://www.linkedin.com/company/graphicsporium/" target="_blank" rel="noopener noreferrer">
+                <img src={iconLinkedin} alt="LinkedIn" className="social-icon" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+              </a>
+              <a href="https://www.instagram.com/_graphicsporium/" target="_blank" rel="noopener noreferrer">
+                <img src={iconInsta} alt="Instagram" className="social-icon" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61561913078921" target="_blank" rel="noopener noreferrer">
+                <img src={iconFb} alt="Facebook" className="social-icon" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+              </a>
+            </div>
           </div>
 
           <div className="footer-col">
@@ -998,7 +1035,7 @@ export const Footer = ({ currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
               <li><Link to="/about">About Us</Link></li>
               <li><a href="#why-choose-us">Why Choose Us</a></li>
               <li><a href="#packages">Packages</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
+              <li><Link to="/portfolio">Portfolio</Link></li>
               <li><Link to="/blog">Blogs</Link></li>
             </ul>
           </div>
@@ -1018,6 +1055,9 @@ export const Footer = ({ currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
               <p className="msme-number-text">UDYAM-WB-07-0072277</p>
             </div>
           </div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '40px', paddingTop: '20px', paddingBottom: '20px', color: 'var(--color-text-muted)', fontSize: '0.9rem', borderTop: '1px solid var(--color-border)' }}>
+          ©️ Copyright 2026
         </div>
       </div>
     </footer>
@@ -1053,12 +1093,6 @@ const teamMembers = [
     imageBw: pratyayBw,
     imageColor: pratyayColor,
     linkedin: "https://www.linkedin.com/in/pratyay-banerjee-7b6b38292/"
-  },
-  {
-    name: "Sneha Ingle",
-    role: "Sales And Marketing Intern",
-    imageBw: snehaBw,
-    imageColor: snehaColor
   }
 ];
 
@@ -1227,67 +1261,266 @@ export const ComingSoonOverlay = ({ isOpen, onClose }) => {
   );
 };
 
-export const GraphicDesignOverlay = ({ isOpen, onClose }) => {
+// --- Portfolio Overlays ---
+const graphicDesignImages = import.meta.glob('./assets/Graphics Design/**/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}', { eager: true, import: 'default' });
+const illustrationImages = import.meta.glob(['./assets/Illustration/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}', './assets/Illustration/**/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}'], { eager: true, import: 'default' });
+const packageDesignImages = import.meta.glob(['./assets/Package Design/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}', './assets/Package Design/**/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}'], { eager: true, import: 'default' });
+const tshirtDesignImages = import.meta.glob(['./assets/T shirt Design/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}', './assets/T shirt Design/**/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}'], { eager: true, import: 'default' });
+
+const formatCaption = (filePath: string) => {
+  const fileName = filePath.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
+  return fileName
+    .replace(/\b(copy|mockup|screenshot)\b/gi, '')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
+export const PortfolioSectionOverlay = ({ isOpen, onClose, category = 'Graphic Design' }) => {
+  const [selectedImage, setSelectedImage] = useState<any>(null);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('overlay-open');
     } else {
       document.body.style.overflow = '';
+      document.body.classList.remove('overlay-open');
+      setSelectedImage(null);
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('overlay-open');
     };
   }, [isOpen]);
 
   if (!isOpen) return null;
 
-  const images = import.meta.glob('./assets/Graphics Design/**/*.{jpg,jpeg,png,webp,gif}', { eager: true, import: 'default' });
+  const normalizedCategory = (category || '').toLowerCase().replace(/[-_]/g, ' ').trim();
 
-  const groupedImages = {};
-  for (const path in images) {
-    const parts = path.split('/');
-    if (parts.length >= 5) {
-      const subfolder = parts[parts.length - 2];
-      if (!groupedImages[subfolder]) {
-        groupedImages[subfolder] = [];
+  let displayCategory = 'Graphic Design';
+  let subtitle = 'Explore our portfolio of creative work and client projects.';
+  let isGraphicDesign = false;
+
+  if (normalizedCategory.includes('graphic')) {
+    displayCategory = 'Graphic Design';
+    subtitle = 'A showcase of branding, logos, social media posters, banners, and marketing collaterals.';
+    isGraphicDesign = true;
+  } else if (normalizedCategory.includes('illustration')) {
+    displayCategory = 'Illustration';
+    subtitle = 'Handcrafted digital illustrations, character artwork, and creative concepts.';
+  } else if (normalizedCategory.includes('package')) {
+    displayCategory = 'Package Design';
+    subtitle = 'Custom product packaging, 3D box mockups, label design, and retail presentation.';
+  } else if (normalizedCategory.includes('t shirt') || normalizedCategory.includes('tshirt') || normalizedCategory.includes('shirt')) {
+    displayCategory = 'T-Shirt Design';
+    subtitle = 'Apparel graphics, custom typography, oversized streetwear, and merchandise mockups.';
+  }
+
+  // Grouped images for Graphic Design
+  const groupedGraphicImages: { [subfolder: string]: { path: string; src: any; title: string }[] } = {};
+  if (isGraphicDesign) {
+    for (const path in graphicDesignImages) {
+      const parts = path.split('/');
+      if (parts.length >= 5) {
+        const subfolder = parts[parts.length - 2];
+        if (!groupedGraphicImages[subfolder]) {
+          groupedGraphicImages[subfolder] = [];
+        }
+        groupedGraphicImages[subfolder].push({
+          path,
+          src: graphicDesignImages[path],
+          title: formatCaption(path)
+        });
       }
-      groupedImages[subfolder].push(images[path]);
     }
   }
 
+  // Flat list for Illustration, Package Design, T-Shirt Design
+  let flatImages: { path: string; src: any; title: string }[] = [];
+  if (displayCategory === 'Illustration') {
+    flatImages = Object.entries(illustrationImages).map(([path, src]) => ({
+      path,
+      src,
+      title: formatCaption(path) || 'Custom Illustration'
+    }));
+  } else if (displayCategory === 'Package Design') {
+    flatImages = Object.entries(packageDesignImages).map(([path, src]) => ({
+      path,
+      src,
+      title: formatCaption(path) || 'Packaging Design'
+    }));
+  } else if (displayCategory === 'T-Shirt Design') {
+    flatImages = Object.entries(tshirtDesignImages).map(([path, src]) => ({
+      path,
+      src,
+      title: formatCaption(path) || 'T-Shirt Design'
+    }));
+  }
+
   return (
-    <div className="coming-soon-overlay graphic-design-overlay" style={{ display: 'block', overflowY: 'auto', padding: '2rem', zIndex: 9999, backgroundColor: 'var(--color-slate-bg)', position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}>
-      <div className="container" style={{ marginTop: '8rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', marginBottom: '3rem' }}>
-          <button className="back-btn" onClick={onClose}>
+    <div className="portfolio-section-overlay">
+      <div className="container" style={{ marginTop: '7.5rem', position: 'relative' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', marginBottom: '1.25rem', minHeight: '48px' }}>
+          <button 
+            className="back-btn" 
+            onClick={onClose} 
+            aria-label="Back to Portfolio"
+            title="Back to Portfolio"
+          >
             <ArrowLeft size={36} color="#FF5A00" />
           </button>
-          <h2 className="section-title text-center" style={{ margin: 0 }}>Graphic Design <span>Portfolio</span></h2>
+          <h2 className="section-title text-center" style={{ margin: 0 }}>
+            {displayCategory} <span>Portfolio</span>
+          </h2>
         </div>
-        
-        {Object.entries(groupedImages).map(([category, imgs]) => (
-          <div key={category} style={{ marginBottom: '3rem' }}>
-            <h3 style={{ 
-              borderBottom: '2px solid #FF5A00', 
-              display: 'inline-block', 
-              paddingBottom: '0.5rem', 
-              marginBottom: '1.5rem',
-              textTransform: 'capitalize',
-              fontSize: '1.8rem'
-            }}>
-              {category.replace(/_/g, ' ')}
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1rem' }}>
-              {(imgs as string[]).map((src: any, idx: number) => (
-                <img key={idx} src={src} alt={category} style={{ width: '100%', height: 'auto', borderRadius: '8px', objectFit: 'cover' }} />
-              ))}
+        <p className="section-subtitle text-center" style={{ marginBottom: '3rem' }}>
+          {subtitle}
+        </p>
+
+        {isGraphicDesign ? (
+          Object.entries(groupedGraphicImages).map(([cat, imgs]) => (
+            <div key={cat} style={{ marginBottom: '3.5rem' }}>
+              <h3 style={{ 
+                borderBottom: '2px solid #FF5A00', 
+                display: 'inline-block', 
+                paddingBottom: '0.5rem', 
+                marginBottom: '1.5rem',
+                textTransform: 'capitalize',
+                fontSize: '1.8rem',
+                color: 'var(--color-text)'
+              }}>
+                {cat.replace(/_/g, ' ')}
+              </h3>
+              <div className="portfolio-gallery-grid">
+                {imgs.map((item, idx) => (
+                  <div 
+                    key={idx} 
+                    className="portfolio-gallery-card"
+                    onClick={() => setSelectedImage(item)}
+                    title="Click to view full size"
+                  >
+                    <img 
+                      src={item.src} 
+                      alt={cat} 
+                      loading="lazy" 
+                      className="portfolio-gallery-img" 
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
+          ))
+        ) : (
+          <div className="portfolio-gallery-grid">
+            {flatImages.map((item, idx) => (
+              <div 
+                key={idx} 
+                className="portfolio-gallery-card"
+                onClick={() => setSelectedImage(item)}
+                title="Click to view full size"
+              >
+                <img 
+                  src={item.src} 
+                  alt={item.title} 
+                  loading="lazy" 
+                  className="portfolio-gallery-img" 
+                />
+                {item.title && (
+                  <div className="portfolio-gallery-caption">
+                    {item.title}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
+
+      {/* Lightbox Preview Modal */}
+      {selectedImage && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.92)',
+            backdropFilter: 'blur(10px)',
+            zIndex: 10002,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '2rem'
+          }}
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            style={{
+              position: 'absolute',
+              top: '1.5rem',
+              right: '1.5rem',
+              background: 'rgba(255, 255, 255, 0.15)',
+              border: 'none',
+              borderRadius: '50%',
+              color: '#fff',
+              width: '46px',
+              height: '46px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              transition: 'background-color 0.2s ease',
+              zIndex: 10003
+            }}
+            onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
+            aria-label="Close image preview"
+          >
+            <X size={26} />
+          </button>
+          <div 
+            style={{ maxWidth: '90vw', maxHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={selectedImage.src} 
+              alt={selectedImage.title} 
+              style={{
+                maxWidth: '100%',
+                maxHeight: '80vh',
+                objectFit: 'contain',
+                borderRadius: '8px',
+                boxShadow: '0 10px 40px rgba(0,0,0,0.6)'
+              }} 
+            />
+            {selectedImage.title && (
+              <p style={{ marginTop: '1rem', color: '#fff', fontSize: '1.1rem', fontWeight: 500, letterSpacing: '0.5px' }}>
+                {selectedImage.title}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+
+export const GraphicDesignOverlay = ({ isOpen, onClose }) => (
+  <PortfolioSectionOverlay isOpen={isOpen} onClose={onClose} category="Graphic Design" />
+);
+
+export const IllustrationOverlay = ({ isOpen, onClose }) => (
+  <PortfolioSectionOverlay isOpen={isOpen} onClose={onClose} category="Illustration" />
+);
+
+export const PackageDesignOverlay = ({ isOpen, onClose }) => (
+  <PortfolioSectionOverlay isOpen={isOpen} onClose={onClose} category="Package Design" />
+);
+
+export const TShirtDesignOverlay = ({ isOpen, onClose }) => (
+  <PortfolioSectionOverlay isOpen={isOpen} onClose={onClose} category="T-Shirt Design" />
+);
 
 const Preloader = ({ show }) => {
   const [render, setRender] = useState(true);
@@ -1427,7 +1660,7 @@ function App() {
   const handleAddToCart = (item) => {
     setEstimatorData(prev => [...prev, item]);
     const newCount = estimatorData.length + 1;
-    showToast(`${newCount} item${newCount > 1 ? 's' : ''} added to cart`);
+    showToast(`${newCount} item${newCount > 1 ? 's' : ''} added in the cart`);
   };
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
     const savedTheme = sessionStorage.getItem('theme');
@@ -1467,6 +1700,8 @@ function App() {
           currentLogo={currentLogo} 
           onNavClick={() => { setIsOverlayOpen(false); setActiveOverlayItem(null); }} 
           onToggleConsultation={() => setIsConsultationOpen(!isConsultationOpen)}
+          cartItemCount={estimatorData.length}
+          isOverlayOpen={isOverlayOpen}
         />
         <ConsultationDrawer isOpen={isConsultationOpen} onClose={() => setIsConsultationOpen(false)} />
         <MobileCallButton />
@@ -1474,8 +1709,8 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              {activeOverlayItem === 'Graphic Design' ? (
-                <GraphicDesignOverlay isOpen={isOverlayOpen} onClose={() => { setIsOverlayOpen(false); setActiveOverlayItem(null); }} />
+              {['Graphic Design', 'Illustration', 'Package Design', 'T-Shirt Design', 'T shirt Design'].includes(activeOverlayItem) ? (
+                <PortfolioSectionOverlay isOpen={isOverlayOpen} onClose={() => { setIsOverlayOpen(false); setActiveOverlayItem(null); }} category={activeOverlayItem} />
               ) : activeOverlayItem?.startsWith('service-') ? (
                 <ServiceModal isOpen={isOverlayOpen} onClose={() => { setIsOverlayOpen(false); setActiveOverlayItem(null); }} title={activeOverlayItem.replace('service-', '')} onAddToCart={handleAddToCart} />
               ) : (
@@ -1486,7 +1721,7 @@ function App() {
               <Services openOverlay={(title) => { setActiveOverlayItem(title); setIsOverlayOpen(true); }} />
               <WebsiteAndBrandingPackages onAddToCart={handleAddToCart} />
               <WhyChooseUs />
-              <Portfolio openOverlay={(title) => { setActiveOverlayItem(title); setIsOverlayOpen(true); }} />
+              
               <OurTeam isDarkTheme={isDarkTheme} />
               <Testimonials />
               <ContactForm 
@@ -1498,11 +1733,15 @@ function App() {
               <WhatsAppButton onClick={handleWhatsAppRedirect} />
             </>
           } />
-          <Route path="/services" element={<ServicesPage isDarkTheme={isDarkTheme} toggleTheme={() => setIsDarkTheme(!isDarkTheme)} currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} />} />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/services" element={<ServicesPage isDarkTheme={isDarkTheme} toggleTheme={() => setIsDarkTheme(!isDarkTheme)} currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} onAddToCart={handleAddToCart} cartItemCount={estimatorData.length} />} />
+          <Route path="/portfolio" element={<PortfolioPage isDarkTheme={isDarkTheme} toggleTheme={() => setIsDarkTheme(!isDarkTheme)} currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} onAddToCart={handleAddToCart} cartItemCount={estimatorData.length} />} />
+          <Route path="/ebooks" element={<EbooksPage isDarkTheme={isDarkTheme} toggleTheme={() => setIsDarkTheme(!isDarkTheme)} currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} />} />
+          <Route path="/admin" element={<AdminPortal />} />
+          <Route path="/admin/login" element={<AdminPortal />} />
+          <Route path="/about" element={<AboutUsPage currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} />} />
+          <Route path="/contact" element={<ContactPage currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} />} />
+          <Route path="/blog" element={<Blog currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} />} />
+          <Route path="/blog/:id" element={<BlogPost currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={handleWhatsAppRedirect} />} />
         </Routes>
       </div>
     </>

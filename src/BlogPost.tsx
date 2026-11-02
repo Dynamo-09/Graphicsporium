@@ -7,6 +7,10 @@ import blog3Img from './assets/blog3.png';
 import blog4Img from './assets/blog4.png';
 import blog5Img from './assets/blog5.png';
 import blog6Img from './assets/blog6.png';
+import blog7Img from './assets/blog7.png';
+import blog8Img from './assets/blog8.png';
+import blog9Img from './assets/blog9.png';
+import { Footer } from './App';
 
 const blogData = {
   'web-design-trends': {
@@ -446,10 +450,230 @@ const blogData = {
         <p style={{ marginBottom: '1.5rem' }}>For businesses investing in a new website, a mobile app, or a digital platform, getting both right from the start is significantly more efficient than fixing problems after launch.</p>
       </>
     )
+  },
+  'how-to-choose-printing-material-for-your-brand': {
+    title: 'How to Choose the Right Printing Material for Your Brand',
+    img: blog7Img,
+    content: (
+      <>
+        <p style={{ marginBottom: '1.5rem', marginTop: '2rem' }}>In a world that's increasingly digital, physical printed materials still carry a weight that screens simply can't replicate. The texture of a business card, the finish of a product box, the quality of an exhibition banner, these details communicate something about your brand that pixels never quite manage. But great design on the wrong printing material for your brand can undermine the very impression you're trying to create. Choosing the right substrate isn't a technical afterthought, it's a branding decision that affects how customers perceive you before they've used your product or read a single word of your copy.</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Why Printing Material Matters for Your Brand</h2>
+        <p style={{ marginBottom: '1.5rem' }}>The material you print on shapes how your brand is experienced in the physical world. And that experience happens fast.</p>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>First impressions</strong> : A flimsy business card or a faded outdoor banner signals that a business cuts corners. A well-chosen material does the opposite: it communicates care and professionalism without saying a word.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Brand perception</strong> : Premium materials create a premium feel. Economy materials, even when well-designed, tend to communicate economy positioning whether that's intentional or not.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Durability</strong> : The right material ensures your print assets survive the environments they'll be used in. The wrong one fades, warps, or degrades in ways that reflect badly on the brand.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Customer experience</strong> : Physical interaction with a brand leaves a stronger memory trace than digital interaction. The feel of quality packaging or a textured business card is part of the brand experience.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Return on investment</strong> : Investing slightly more in better materials often yields significantly better returns through stronger impressions, longer lifespan, and reduced reprinting costs.</li>
+        </ul>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Types of Printing Materials and Their Best Uses</h2>
+        
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>Paper</h3>
+        <p style={{ marginBottom: '1rem' }}>Standard paper is the most versatile and widely used printing substrate. It works well for:</p>
+        <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.5rem' }}>Flyers and leaflets : lightweight, cost-effective, and easy to distribute</li>
+          <li style={{ marginBottom: '0.5rem' }}>Brochures : best on coated paper for crisp color reproduction</li>
+          <li style={{ marginBottom: '0.5rem' }}>Letterheads : uncoated paper gives a professional, clean finish for correspondence</li>
+          <li style={{ marginBottom: '0.5rem' }}>Internal documents and reports : functional rather than premium</li>
+        </ul>
+        <p style={{ marginBottom: '2rem' }}>Paper is ideal when volume matters more than longevity. It's not the right choice for anything that needs to withstand handling, weather, or extended use.</p>
+
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>Cardstock</h3>
+        <p style={{ marginBottom: '1rem' }}>Cardstock is heavier and more rigid than standard paper, making it the go-to for print assets that need to feel substantial.</p>
+        <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.5rem' }}>Premium business cards : the weight and finish of a cardstock card communicates quality from the first handshake</li>
+          <li style={{ marginBottom: '0.5rem' }}>Invitations and event materials : cardstock gives formal pieces the gravitas they require</li>
+          <li style={{ marginBottom: '0.5rem' }}>Product tags and hang tags : durable enough to survive retail environments</li>
+          <li style={{ marginBottom: '0.5rem' }}>Greeting cards and branded stationery : the added thickness creates a tactile premium feel</li>
+        </ul>
+        <p style={{ marginBottom: '2rem' }}>For businesses that want their printed collateral to make a physical impression, cardstock is almost always the better investment over standard paper.</p>
+
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>Vinyl</h3>
+        <p style={{ marginBottom: '1rem' }}>Vinyl is a durable, weather-resistant material designed for environments where paper and cardstock won't hold up.</p>
+        <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.5rem' }}>Outdoor banners and signage : vinyl withstands rain, wind, and UV exposure far better than paper alternatives</li>
+          <li style={{ marginBottom: '0.5rem' }}>Vehicle graphics and wraps : adhesive vinyl adheres cleanly to vehicle surfaces and can be removed without damage</li>
+          <li style={{ marginBottom: '0.5rem' }}>Window decals : frosted or clear vinyl works well for storefronts, office branding, and retail environments</li>
+          <li style={{ marginBottom: '0.5rem' }}>Event and exhibition signage : durable enough for repeated use across multiple events</li>
+        </ul>
+        <p style={{ marginBottom: '2rem' }}>The key advantage of vinyl is longevity. For anything that needs to perform outdoors or in high-traffic environments, it's the right material by a considerable margin.</p>
+
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>Fabric</h3>
+        <p style={{ marginBottom: '1rem' }}>Fabric printing brings a premium, professional feel to large-format brand applications.</p>
+        <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.5rem' }}>Exhibition booths and trade show displays : fabric graphics are lightweight, easy to transport, and wrinkle-resistant</li>
+          <li style={{ marginBottom: '0.5rem' }}>Event backdrops : printed fabric creates a polished finish for photography and presentations</li>
+          <li style={{ marginBottom: '0.5rem' }}>Promotional banners : softer and more visually refined than vinyl alternatives in indoor settings</li>
+          <li style={{ marginBottom: '0.5rem' }}>Flags and hanging displays : fabric moves naturally and reads well at a distance</li>
+        </ul>
+        <p style={{ marginBottom: '2rem' }}>For brands investing in event presence or premium display environments, fabric printing tends to elevate the overall impression significantly compared to standard banner materials.</p>
+
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>Packaging Materials</h3>
+        <p style={{ marginBottom: '1rem' }}>Packaging is arguably the most brand-critical print application because it's the material customers interact with most directly.</p>
+        <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.5rem' }}>Corrugated boxes : durable and widely used for e-commerce and product shipping; highly customizable with printing on the exterior</li>
+          <li style={{ marginBottom: '0.5rem' }}>Kraft paper : natural, sustainable feel; works well for brands with an organic, artisan, or eco-conscious positioning</li>
+          <li style={{ marginBottom: '0.5rem' }}>Rigid boxes : the choice for luxury and premium products; the unboxing experience they create is a deliberate brand moment</li>
+          <li style={{ marginBottom: '0.5rem' }}>Custom packaging : bespoke sizes, finishes, and structural designs that reflect a brand's specific identity and product requirements</li>
+        </ul>
+        <p style={{ marginBottom: '2rem' }}>Packaging materials should be chosen based on both the physical requirements of the product inside and the brand experience you want to create outside.</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Factors to Consider Before Choosing a Printing Material</h2>
+        <p style={{ marginBottom: '1.5rem' }}>Making the right choice involves more than picking a material that looks good. Here's what to think through:</p>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Purpose</strong> : What is this printed piece for? A disposable event flyer has very different material requirements than a product box that customers keep.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Target audience</strong> : A premium B2B client receiving a proposal will notice the quality of the paper it's printed on. A mass-market flyer recipient won't.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Indoor vs. outdoor usage</strong> : Any material going outside needs to be weather-resistant. Anything used indoors has far more flexibility.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Budget</strong> : Better materials cost more but reprinting cheap materials that wear out quickly often costs more over time. Think in terms of cost per impression rather than unit cost.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Brand personality</strong> : A sustainable brand should consider eco-friendly materials like recycled paper or kraft stock. A luxury brand should match its materials to its positioning.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Print finish</strong> : Matte finishes feel understated and premium. Gloss finishes are vibrant and high-impact. Soft-touch lamination adds a tactile dimension that photographs can't communicate. The finish is part of the design decision, not a finishing detail.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Sustainability</strong> : Increasingly, customers notice whether a brand's physical materials reflect the same values the brand communicates digitally. Eco-certified papers and recyclable packaging are worth considering beyond just the environmental argument.</li>
+        </ul>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Common Printing Mistakes to Avoid</h2>
+        <p style={{ marginBottom: '1.5rem' }}>Most print problems come from a small set of decisions made early in the process:</p>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Choosing cheap materials to save money</strong> : the saving rarely justifies the brand damage. Poor-quality printed materials communicate poor-quality products and services.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Ignoring print finishes</strong> : choosing a material without specifying the finish often means defaulting to an option that doesn't suit the design or the brand.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Skipping print samples</strong> : always request a physical proof before committing to a full print run. Colors, textures, and finishes look different on screen than in hand.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Inconsistent materials across brand touchpoints</strong> : a glossy business card paired with a matte brochure paired with a lightweight flyer creates a fragmented brand experience.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Using the wrong material for the application</strong> : standard paper for outdoor use, flimsy cardstock for a luxury product, uncoated stock for vibrant color printing mismatches between material and application are among the most avoidable print mistakes.</li>
+        </ul>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Why Professional Printing Guidance Matters</h2>
+        <p style={{ marginBottom: '1.5rem' }}>Material selection is one of the areas where experienced creative and print partners earn their value most clearly. The right agency brings:</p>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.8rem' }}>Better material recommendations based on the specific use case rather than a one-size-fits-all approach</li>
+          <li style={{ marginBottom: '0.8rem' }}>Consistent branding across every physical touchpoint, from business cards to packaging to event displays</li>
+          <li style={{ marginBottom: '0.8rem' }}>Higher print quality through understanding how design files, color profiles, and materials interact</li>
+          <li style={{ marginBottom: '0.8rem' }}>Cost-effective decisions that balance quality with budget avoiding both overspend and the false economy of cheap materials</li>
+          <li style={{ marginBottom: '0.8rem' }}>Stronger customer impressions through materials that genuinely complement the design they carry</li>
+        </ul>
+        <p style={{ marginBottom: '1.5rem' }}>Graphicsporium works with businesses to ensure that their brand's physical presence is as considered and professional as its digital one from material selection through to final print production.</p>
+        <p style={{ marginBottom: '1.5rem' }}>The right printing material for your brand does more than carry your design; it becomes part of how customers experience your business. Whether you're producing business cards, packaging, event materials, or branded signage, the substrate you choose shapes the impression you leave.</p>
+        <p style={{ marginBottom: '2rem' }}>Getting it right takes both design expertise and print knowledge. If you're planning a new print project or refreshing your brand's physical materials, Graphicsporium's branding, design, and printing services are built to help you make decisions that serve the brand well both now and over time.</p>
+      </>
+    )
+  },
+
+  'canva-vs-professional-graphic-designers': {
+    title: 'Canva vs. Professional Graphic Designers: What\'s Best?',
+    img: blog8Img,
+    content: (
+      <>
+        <p style={{ marginBottom: '1.5rem', marginTop: '2rem' }}>Canva has quietly rewired how small businesses think about design. A marketing coordinator with zero formal training can now put together a decent Instagram graphic in the time it takes to brew coffee, no design degree required. That accessibility is genuinely useful, and it's also where the real conversation starts. Once a brand moves past the occasional social post and starts thinking about how it wants to be remembered, the Canva vs Professional Graphic Designers question stops being theoretical. Is a template enough, or does the moment call for someone who designs for a living?</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Why Canva Has Become So Popular</h2>
+        <p style={{ marginBottom: '1.5rem' }}>Canva earned its popularity honestly. The drag-and-drop editor doesn't demand any design vocabulary. You pick a template, swap the photo, change a headline, and you're done.</p>
+        <p style={{ marginBottom: '1rem' }}>A few reasons it's stuck around:</p>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.5rem' }}>It's free to start, and the paid tier is still cheap compared to hiring anyone.</li>
+          <li style={{ marginBottom: '0.5rem' }}>Thousands of ready-made templates cover almost any format you'd need.</li>
+          <li style={{ marginBottom: '0.5rem' }}>Social graphics, flyers, and slide decks come together in minutes, not days.</li>
+          <li style={{ marginBottom: '0.5rem' }}>Beginners can produce something presentable on their first try.</li>
+        </ul>
+        <p style={{ marginBottom: '2rem' }}>For a lot of everyday tasks, Canva is genuinely the right tool. The trouble starts when businesses treat it as a substitute for strategy rather than a shortcut for execution.</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Where Canva Works Best</h2>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '1rem' }}><strong style={{ color: 'var(--color-text)' }}>Social media posts</strong><br />Quick, timely content, a quote graphic, a product teaser, a holiday greeting is exactly what Canva templates were built for.</li>
+          <li style={{ marginBottom: '1rem' }}><strong style={{ color: 'var(--color-text)' }}>Presentations</strong><br />Internal decks and client-facing pitches both benefit from Canva's clean, professional-looking slide layouts.</li>
+          <li style={{ marginBottom: '1rem' }}><strong style={{ color: 'var(--color-text)' }}>Simple flyers</strong><br />A one-off event flyer or promotional handout rarely needs a custom design process behind it.</li>
+          <li style={{ marginBottom: '1rem' }}><strong style={{ color: 'var(--color-text)' }}>Event invitations</strong><br />Birthday parties, webinars, community meetups Canva's invitation templates handle the basics without fuss.</li>
+          <li style={{ marginBottom: '1rem' }}><strong style={{ color: 'var(--color-text)' }}>Internal business documents</strong><br />Reports, onboarding guides, and internal memos look more polished with a Canva template than a blank Word doc.</li>
+        </ul>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Where Professional Graphic Designers Make the Difference</h2>
+        <p style={{ marginBottom: '1.5rem' }}>This is where the comparison gets more interesting. A professional graphic designer isn't just faster at using design software, they're solving a different problem entirely. Templates are built to look good in isolation. A designer builds something that has to work everywhere your brand shows up, for years, without falling apart.</p>
+        <p style={{ marginBottom: '1rem' }}>That distinction matters most for:</p>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Brand identity creation</strong> : a cohesive system of color, type, and tone that holds up across every touchpoint.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Logo design</strong> : a mark built to be simple, scalable, and legally distinct, not assembled from a shared icon library.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Custom illustrations</strong> : original artwork that can't be traced back to a stock template someone else is also using.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Packaging design</strong> : where print production, materials, and shelf presence all have to be accounted for.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Website UI/UX</strong> : interfaces designed around how real users actually navigate, not just how a page looks in a screenshot.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Marketing campaigns</strong> : visuals built around a strategy and a specific audience, not a generic template's built-in assumptions.</li>
+          <li style={{ marginBottom: '0.8rem' }}><strong style={{ color: 'var(--color-text)' }}>Print materials</strong> : where color accuracy, bleed, and paper stock decisions genuinely affect the final product.</li>
+        </ul>
+        <p style={{ marginBottom: '2rem' }}>A trained designer also brings something templates can't: an understanding of brand psychology and how small visual decisions shape trust. That's less about talent and more about experience knowing why a particular layout builds credibility and another one quietly undercuts it.</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Which Option Is Right for Your Business?</h2>
+        <p style={{ marginBottom: '1rem' }}>Choose Canva if:</p>
+        <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.5rem' }}>You need something quick and the deadline is today.</li>
+          <li style={{ marginBottom: '0.5rem' }}>Your budget genuinely can't stretch beyond a template.</li>
+          <li style={{ marginBottom: '0.5rem' }}>The piece isn't customer-facing or tied to brand strategy.</li>
+        </ul>
+        
+        <p style={{ marginBottom: '1rem' }}>Hire a professional graphic designer if:</p>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.5rem' }}>You're building or rebuilding a brand identity.</li>
+          <li style={{ marginBottom: '0.5rem' }}>You need visuals that are actually unique, not close variations of what a competitor already used.</li>
+          <li style={{ marginBottom: '0.5rem' }}>You're launching a new product, service, or business.</li>
+          <li style={{ marginBottom: '0.5rem' }}>Consistency and credibility matter to the people deciding whether to trust you.</li>
+        </ul>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Final Thoughts</h2>
+        <p style={{ marginBottom: '1.5rem' }}>Canva is a genuinely useful tool, and there's no shame in using it for what it's good at. But it doesn't replace the strategic thinking, custom craftsmanship, and branding expertise a professional graphic designer brings to the table especially when the work in question is meant to represent your business for years, not just one campaign.</p>
+        <p style={{ marginBottom: '2rem' }}>If your brand has outgrown templates, Graphicsporium's team can help you build a visual identity that's built around your business, not borrowed from someone else's.</p>
+      </>
+    )
+  },
+
+  'how-professional-design-improves-business-credibility': {
+    title: 'How Professional Design Improves Business Credibility',
+    img: blog9Img,
+    content: (
+      <>
+        <p style={{ marginBottom: '1.5rem', marginTop: '2rem' }}>Imagine a customer visiting a website for the first time. Within seconds, before they’ve even read a word of copy, they’ve already decided whether or not this business seems legit. And that knee-jerk judgment is precisely why professional design boosts business credibility in a way that is easy to underestimate and expensive to overlook. Design is not about looking good. It will decide whether they believe enough in you to buy, sign up or even give you their contact info in the first place.</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Why First Impressions Matter in Business</h2>
+        <p style={{ marginBottom: '1.5rem' }}>People don't read a homepage the way they read a book. They scan it, form a gut reaction, and decide almost instantly whether to stay or leave. That reaction is built entirely on visual cues — layout, color, typography, spacing — long before any message gets absorbed.</p>
+        <p style={{ marginBottom: '1.5rem' }}>This is why visual presentation and trust are so tightly linked. A mismatched logo, a stretched image, or fonts that clash all send a quiet signal that something is off, even if the customer can't articulate why.</p>
+        <p style={{ marginBottom: '2.5rem' }}>Think about two competing accounting firms. One has a sleek, consistent brand across its website and LinkedIn page. The other has a pixelated logo and a site that looks like it was built a decade ago. Same services, same pricing — but one firm reads as established and the other reads as risky.</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>How Professional Design Builds Business Credibility</h2>
+        
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>Consistent Brand Identity</h3>
+        <p style={{ marginBottom: '1.5rem' }}>Keeping your logo, color scheme, and font consistent across your website, social media, and printed materials does more than create a cohesive look. It signals to your audience that you're an established brand. When a small bakery uses one blue on its packaging and a totally different blue on Instagram it’s creating friction for no purpose. Brand consistency eliminates that friction and makes a company recognizable at a glance, no matter where a person finds it.</p>
+        
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>A Professional Website</h3>
+        <p style={{ marginBottom: '1.5rem' }}>Your website is typically the first encounter a person has with your brand. A clean, mobile-friendly design that loads fast and functions well on phones communicates to visitors that you mean business. A bewildering site menu or one that falls apart on phones has the reverse effect—it makes people wonder if they can really trust the business with their money. It turns out there are a lot more ways to make a user interface right than there are to make it wrong.</p>
+        
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>High-Quality Marketing Materials</h3>
+        <p style={{ marginBottom: '1.5rem' }}>Brochures, business cards, presentation decks, social posts, and packaging are all touchpoints where quality gets noticed. A crisp, well-designed proposal deck can make a prospective client feel like they're in capable hands before a single word is spoken. Low-quality materials, even if the underlying service is excellent, quietly undercut that impression.</p>
+        
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>Better User Experience</h3>
+        <p style={{ marginBottom: '1.5rem' }}>Intuitive layouts, readable typography, and clear navigation aren't just design preferences, they directly affect whether someone finds what they need or gives up and leaves. A cluttered menu structure on an online store, for example, often costs more in abandoned carts than a redesign would ever cost.</p>
+        
+        <h3 style={{ color: 'var(--color-text)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.3rem' }}>Stronger Brand Recognition</h3>
+        <p style={{ marginBottom: '2.5rem' }}>Memorable, consistent visuals help a business stand out in a crowded market. When someone recognizes your color scheme or logo shape before they even read your name, that's brand recognition doing its job — and it compounds every time someone sees it again.</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Common Design Mistakes That Hurt Credibility</h2>
+        <p style={{ marginBottom: '1.5rem' }}>Several avoidable issues chip away at credibility faster than business owners realize:</p>
+        <ul style={{ marginBottom: '2.5rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+          <li style={{ marginBottom: '0.8rem' }}>Inconsistent branding across platforms, confusing anyone trying to recognize you.</li>
+          <li style={{ marginBottom: '0.8rem' }}>Low-quality logos that look pixelated or amateurish at larger sizes.</li>
+          <li style={{ marginBottom: '0.8rem' }}>Cluttered website layouts that overwhelm visitors instead of guiding them.</li>
+          <li style={{ marginBottom: '0.8rem' }}>Poor typography, including mismatched fonts or hard-to-read body text.</li>
+          <li style={{ marginBottom: '0.8rem' }}>Low-resolution images that make a business look unpolished.</li>
+          <li style={{ marginBottom: '0.8rem' }}>Too many colors or fonts, which reads as chaotic rather than creative.</li>
+          <li style={{ marginBottom: '0.8rem' }}>Outdated visual design that hasn't been refreshed in years.</li>
+        </ul>
+        <p style={{ marginBottom: '2.5rem' }}>Avoiding these usually comes down to establishing brand guidelines early and sticking to them, rather than letting every new asset get designed from scratch.</p>
+
+        <h2 style={{ color: 'var(--color-text)', marginTop: '2.5rem', marginBottom: '1.5rem' }}>Why Investing in Professional Design Pays Off</h2>
+        <p style={{ marginBottom: '1.5rem' }}>Good design doesn’t usually make a splash overnight; it's more like a steady drip that fills the bucket. You don’t get a single huge win. Instead, you stack up all these little advantages: people trust you more when your visuals look intentional, your marketing materials get noticed because they’re actually pleasant to look at, and your branding just sticks better because it’s consistent. Plus, easier-to-follow designs make it simpler for customers to do what you actually want them to do.</p>
+        <p style={{ marginBottom: '1.5rem' }}>Sure, none of this means you’ll wake up famous tomorrow. But what design really does is smooth out all those rough edges, the ones that quietly turn people away before you even know they were out there.</p>
+        <p style={{ marginBottom: '2rem' }}>So, professional design isn’t just another line on your expense sheet. It’s a long-term investment in how people see and trust your brand. The businesses that really value design end up building credibility you can’t fake and your competition’s going to have a hard time catching up.</p>
+      </>
+    )
   }
 };
 
-const BlogPost = () => {
+const BlogPost = ({ currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   
@@ -460,8 +684,8 @@ const BlogPost = () => {
   }, [id]);
 
   return (
-    <div style={{ backgroundColor: 'var(--color-slate-bg)', minHeight: '100vh', width: '100%' }}>
-      <div className="blog-page-container" style={{ padding: '130px 20px 60px 20px', maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
+    <div style={{ backgroundColor: 'var(--color-slate-bg)', minHeight: '100vh', width: '100%', display: 'flex', flexDirection: 'column' }}>
+      <div className="blog-page-container" style={{ padding: '130px 20px 60px 20px', maxWidth: '800px', margin: '0 auto', position: 'relative', flexGrow: 1, width: '100%' }}>
       
       {/* Fixed Back Button */}
       <button 
@@ -503,6 +727,7 @@ const BlogPost = () => {
         {post.content}
       </div>
       </div>
+      <Footer currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={onWhatsAppClick} />
     </div>
   );
 };

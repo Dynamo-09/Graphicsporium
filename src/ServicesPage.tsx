@@ -1,11 +1,10 @@
 import React, { useState, useLayoutEffect } from 'react';
-import { Navbar, Footer, services, ServiceModal, ComingSoonOverlay, GraphicDesignOverlay } from './App';
+import { Navbar, Footer, services, ServiceModal, ComingSoonOverlay, PortfolioSectionOverlay, GraphicDesignOverlay, IllustrationOverlay, PackageDesignOverlay, TShirtDesignOverlay } from './App';
 import { ArrowRight } from 'lucide-react';
 
-const ServicesPage = ({ isDarkTheme, toggleTheme, currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
+const ServicesPage = ({ isDarkTheme, toggleTheme, currentLogo, currentMsmeLogo, onWhatsAppClick, onAddToCart, cartItemCount }) => {
   const [activeOverlayItem, setActiveOverlayItem] = useState(null);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-  const [estimatorData, setEstimatorData] = useState([]);
 
   useLayoutEffect(() => {
     document.documentElement.style.scrollBehavior = 'auto';
@@ -16,10 +15,6 @@ const ServicesPage = ({ isDarkTheme, toggleTheme, currentLogo, currentMsmeLogo, 
     }, 50);
     return () => clearTimeout(timeout);
   }, []);
-
-  const handleAddToCart = (item) => {
-    setEstimatorData(prev => [...prev, item]);
-  };
 
   const handleServiceClick = (e, service) => {
     e.preventDefault();
@@ -41,7 +36,9 @@ const ServicesPage = ({ isDarkTheme, toggleTheme, currentLogo, currentMsmeLogo, 
     minHeight: '100vh',
     backgroundColor: isDarkTheme ? '#1C2633' : 'var(--color-bg)',
     color: 'var(--color-text)',
-    transition: 'background-color 0.3s ease, color 0.3s ease'
+    transition: 'background-color 0.3s ease, color 0.3s ease',
+    display: 'flex',
+    flexDirection: 'column'
   };
 
   return (
@@ -52,17 +49,19 @@ const ServicesPage = ({ isDarkTheme, toggleTheme, currentLogo, currentMsmeLogo, 
         currentLogo={currentLogo} 
         onNavClick={() => { setIsOverlayOpen(false); setActiveOverlayItem(null); }} 
         onToggleConsultation={() => {}}
+        cartItemCount={cartItemCount}
+        isOverlayOpen={isOverlayOpen}
       />
       
-      {activeOverlayItem === 'Graphic Design' ? (
-        <GraphicDesignOverlay isOpen={isOverlayOpen} onClose={closeOverlay} />
+      {['Graphic Design', 'Illustration', 'Package Design', 'T-Shirt Design', 'T shirt Design'].includes(activeOverlayItem) ? (
+        <PortfolioSectionOverlay isOpen={isOverlayOpen} onClose={closeOverlay} category={activeOverlayItem} />
       ) : activeOverlayItem?.startsWith('service-') ? (
-        <ServiceModal isOpen={isOverlayOpen} onClose={closeOverlay} title={activeOverlayItem.replace('service-', '')} onAddToCart={handleAddToCart} />
+        <ServiceModal isOpen={isOverlayOpen} onClose={closeOverlay} title={activeOverlayItem.replace('service-', '')} onAddToCart={onAddToCart} />
       ) : (
         <ComingSoonOverlay isOpen={isOverlayOpen} onClose={closeOverlay} />
       )}
 
-      <main style={{ paddingTop: '100px', paddingBottom: '4rem' }}>
+      <main style={{ paddingTop: '100px', paddingBottom: '4rem', flexGrow: 1 }}>
         <section className="section">
           <div className="container">
             <h2 className="section-title text-center" style={{ marginBottom: '1rem' }}>All <span>Services</span></h2>

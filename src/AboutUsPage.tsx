@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import { CheckCircle } from 'lucide-react';
 import './index.css';
+import { Footer } from './App';
 
-const AboutUsPage = () => {
+const AboutUsPage = ({ currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="about-page">
-      <section className="section about-section" style={{ paddingTop: '120px' }}>
+    <div className="about-page" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <section className="section about-section" style={{ paddingTop: '120px', flexGrow: 1 }}>
         <div className="container">
           <div className="about-content">
             <h2 className="section-title text-left" style={{ marginBottom: '1.5rem' }}>About <span>Us</span></h2>
@@ -76,6 +77,7 @@ const AboutUsPage = () => {
           </div>
         </div>
       </section>
+      <Footer currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={onWhatsAppClick} />
     </div>
   );
 };

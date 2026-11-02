@@ -7,8 +7,13 @@ import blog3Img from './assets/blog3.png';
 import blog4Img from './assets/blog4.png';
 import blog5Img from './assets/blog5.png';
 import blog6Img from './assets/blog6.png';
+import blog7Img from './assets/blog7.png';
+import blog8Img from './assets/blog8.png';
+import blog9Img from './assets/blog9.png';
 
-const Blog = () => {
+import { Footer } from './App';
+
+const Blog = ({ currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,8 +21,8 @@ const Blog = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: 'var(--color-slate-bg)', minHeight: '100vh', width: '100%' }}>
-      <div style={{ padding: '130px 20px 80px 20px', maxWidth: '1200px', margin: '0 auto', textAlign: 'center', position: 'relative' }}>
+    <div style={{ backgroundColor: 'var(--color-slate-bg)', minHeight: '100vh', width: '100%', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '130px 20px 80px 20px', maxWidth: '1200px', margin: '0 auto', textAlign: 'center', position: 'relative', flexGrow: 1 }}>
       {/* Fixed Back Button */}
       <button 
         onClick={() => navigate('/')} 
@@ -58,7 +63,7 @@ const Blog = () => {
         Actionable tips on crafting stunning visual identities and robust websites that grow your brand
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', justifyContent: 'center' }}>
+      <div className="blog-grid">
         
         {/* Blog Card */}
         <div 
@@ -88,7 +93,7 @@ const Blog = () => {
             <img 
               src={blog1Img} 
               alt="Blog Thumbnail" 
-              style={{ width: '100%', height: '240px', objectFit: 'contain', backgroundColor: '#fff' }} 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
             />
             <div style={{
               position: 'absolute',
@@ -159,7 +164,7 @@ const Blog = () => {
             <img 
               src={blog3Img} 
               alt="Blog Thumbnail" 
-              style={{ width: '100%', height: '240px', objectFit: 'contain', backgroundColor: '#fff' }} 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
             />
             <div style={{
               position: 'absolute',
@@ -230,7 +235,7 @@ const Blog = () => {
             <img 
               src={blog2Img} 
               alt="Blog Thumbnail" 
-              style={{ width: '100%', height: '240px', objectFit: 'contain', backgroundColor: '#fff' }} 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
             />
             <div style={{
               position: 'absolute',
@@ -301,7 +306,7 @@ const Blog = () => {
             <img 
               src={blog4Img} 
               alt="Blog Thumbnail" 
-              style={{ width: '100%', height: '240px', objectFit: 'contain', backgroundColor: '#fff' }} 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
             />
             <div style={{
               position: 'absolute',
@@ -372,7 +377,7 @@ const Blog = () => {
             <img 
               src={blog5Img} 
               alt="Blog Thumbnail" 
-              style={{ width: '100%', height: '240px', objectFit: 'contain', backgroundColor: '#fff' }} 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
             />
             <div style={{
               position: 'absolute',
@@ -443,7 +448,7 @@ const Blog = () => {
             <img 
               src={blog6Img} 
               alt="Blog Thumbnail" 
-              style={{ width: '100%', height: '240px', objectFit: 'contain', backgroundColor: '#fff' }} 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
             />
             <div style={{
               position: 'absolute',
@@ -486,8 +491,222 @@ const Blog = () => {
           </div>
         </div>
 
+        {/* Blog Card 7 */}
+        <div 
+          onClick={() => navigate('/blog/how-to-choose-printing-material-for-your-brand')}
+          style={{
+            background: 'var(--color-surface)',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+            cursor: 'pointer',
+            textAlign: 'left',
+            border: '1px solid var(--color-border)',
+            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+          }}
+        >
+          <div style={{ position: 'relative' }}>
+            <img 
+              src={blog7Img} 
+              alt="Blog Thumbnail" 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
+            />
+            <div style={{
+              position: 'absolute',
+              top: '15px',
+              right: '15px',
+              background: 'var(--color-primary)',
+              color: '#fff',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              fontSize: '0.8rem',
+              fontWeight: '700',
+              letterSpacing: '1px'
+            }}>
+              ARTICLE
+            </div>
+          </div>
+          
+          <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+            <h3 style={{ 
+              fontSize: '1.3rem', 
+              color: 'var(--color-text)', 
+              fontFamily: 'var(--font-heading)', 
+              marginBottom: '20px',
+              lineHeight: '1.4'
+            }}>
+              How to Choose the Right Printing Material for Your Brand
+            </h3>
+            
+            <div style={{ marginTop: 'auto' }}>
+              <span style={{ 
+                color: 'var(--color-primary)', 
+                fontWeight: '700', 
+                fontSize: '0.9rem',
+                letterSpacing: '1px',
+                textTransform: 'uppercase'
+              }}>
+                READ MORE...
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Blog Card 8 */}
+        <div 
+          onClick={() => navigate('/blog/canva-vs-professional-graphic-designers')}
+          style={{
+            background: 'var(--color-surface)',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+            cursor: 'pointer',
+            textAlign: 'left',
+            border: '1px solid var(--color-border)',
+            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+          }}
+        >
+          <div style={{ position: 'relative' }}>
+            <img 
+              src={blog8Img} 
+              alt="Blog Thumbnail" 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
+            />
+            <div style={{
+              position: 'absolute',
+              top: '15px',
+              right: '15px',
+              background: 'var(--color-primary)',
+              color: '#fff',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              fontSize: '0.8rem',
+              fontWeight: '700',
+              letterSpacing: '1px'
+            }}>
+              ARTICLE
+            </div>
+          </div>
+          
+          <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+            <h3 style={{ 
+              fontSize: '1.3rem', 
+              color: 'var(--color-text)', 
+              fontFamily: 'var(--font-heading)', 
+              marginBottom: '20px',
+              lineHeight: '1.4'
+            }}>
+              Canva vs. Professional Graphic Designers: What's Best?
+            </h3>
+            
+            <div style={{ marginTop: 'auto' }}>
+              <span style={{ 
+                color: 'var(--color-primary)', 
+                fontWeight: '700', 
+                fontSize: '0.9rem',
+                letterSpacing: '1px',
+                textTransform: 'uppercase'
+              }}>
+                READ MORE...
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Blog Card 9 */}
+        <div 
+          onClick={() => navigate('/blog/how-professional-design-improves-business-credibility')}
+          style={{
+            background: 'var(--color-surface)',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+            cursor: 'pointer',
+            textAlign: 'left',
+            border: '1px solid var(--color-border)',
+            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+          }}
+        >
+          <div style={{ position: 'relative' }}>
+            <img 
+              src={blog9Img} 
+              alt="Blog Thumbnail" 
+              style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
+            />
+            <div style={{
+              position: 'absolute',
+              top: '15px',
+              right: '15px',
+              background: 'var(--color-primary)',
+              color: '#fff',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              fontSize: '0.8rem',
+              fontWeight: '700',
+              letterSpacing: '1px'
+            }}>
+              ARTICLE
+            </div>
+          </div>
+          
+          <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+            <h3 style={{ 
+              fontSize: '1.3rem', 
+              color: 'var(--color-text)', 
+              fontFamily: 'var(--font-heading)', 
+              marginBottom: '20px',
+              lineHeight: '1.4'
+            }}>
+              How Professional Design Improves Business Credibility
+            </h3>
+            
+            <div style={{ marginTop: 'auto' }}>
+              <span style={{ 
+                color: 'var(--color-primary)', 
+                fontWeight: '700', 
+                fontSize: '0.9rem',
+                letterSpacing: '1px',
+                textTransform: 'uppercase'
+              }}>
+                READ MORE...
+              </span>
+            </div>
+          </div>
+        </div>
+
       </div>
       </div>
+      <Footer currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={onWhatsAppClick} />
     </div>
   );
 };

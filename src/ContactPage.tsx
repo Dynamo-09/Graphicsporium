@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
+import { Footer } from './App';
 
-const ContactPage = () => {
+const ContactPage = ({ currentLogo, currentMsmeLogo, onWhatsAppClick }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMsg, setResponseMsg] = useState('');
   const [isError, setIsError] = useState(false);
@@ -65,8 +66,8 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="contact-page">
-      <div className="container contact-page-container" style={{ paddingTop: '120px', paddingBottom: '60px', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="contact-page" style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className="container contact-page-container" style={{ paddingTop: '120px', paddingBottom: '60px', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ width: '100%', maxWidth: '600px', background: 'var(--color-surface)', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.1)' }}>
           <h2 style={{ marginBottom: '2rem', textAlign: 'center', color: 'var(--color-primary)', fontSize: '2rem' }}>Consultancy Form</h2>
           <form id="consultationForm" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
@@ -102,6 +103,7 @@ const ContactPage = () => {
           )}
         </div>
       </div>
+      <Footer currentLogo={currentLogo} currentMsmeLogo={currentMsmeLogo} onWhatsAppClick={onWhatsAppClick} />
     </div>
   );
 };
